@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import './styles/variables';
+
+body {
+    background-color: $primary-color;
+}
+
 info-card {
     display: block;
-    width: 75%;
+    max-width: 768px;
     margin: 5rem auto;
 }

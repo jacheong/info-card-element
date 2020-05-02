@@ -1,16 +1,104 @@
+@import '../../../../styles/variables';
+
 .info-card {
 	border-radius: 3rem;
-	background: #ffffff;
-	box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
-	padding: 2rem;
-	.info-card-header {
-		margin-bottom: 1rem;
-		font-size: 36px;
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: 0.25rem;
+	background: $primary-color;
+	box-shadow: 12px 12px 24px 0 $dark-shadow, -12px -12px 24px 0 $light-shadow;
+	padding: $padding-md $padding-sm;
+	display: grid;
+	grid-template-columns: $padding-lg 1fr $padding-lg;
+
+	.info-card-panel {
+		display: none;
+		grid-column: 2 / span 1;
+		padding: 0 1rem;
+		&.active {
+			display: block;
+			animation: fadeIn 500ms ease forwards;
+		}
+		.info-card-header {
+			margin-bottom: $padding-sm;
+			font-size: 36px;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 0.25rem;
+		}
+		.info-card-body {
+			line-height: 1.5;
+		}
 	}
-	.info-card-body {
-		line-height: 1.5;
+
+	.info-card-indicator-container {
+		grid-column: 2 / span 1;
+		grid-row: 2 / span 1;
+		display: flex;
+		justify-content: center;
+		margin-top: 1rem;
+		.info-card-indicator {
+			width: 1.75rem;
+			height: 1.75rem;
+			background:$primary-color;
+			box-shadow: 12px 12px 24px 0 $dark-shadow, -12px -12px 24px 0 $light-shadow;
+			border-radius: 50%;
+			margin-right: $padding-sm;
+			&.active {
+				box-shadow: inset 6px 6px 10px 0 $dark-shadow, inset -6px -6px 10px 0 $light-shadow;
+				animation: growIn 200ms ease both;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.nav-button {
+		display: block;
+		border: none;
+		width: $padding-lg;
+		height: $padding-lg;
+		border-radius: 50%;
+		background: $primary-color;
+		box-shadow: 12px 12px 24px 0 $dark-shadow, -12px -12px 24px 0 $light-shadow;
+		justify-self: center;
+		align-self: center;
+		animation: growIn 200ms ease both;
+		&:hover {
+			cursor: pointer;
+		}
+		&:active {
+			box-shadow: inset 6px 6px 10px 0 $dark-shadow, inset -6px -6px 10px 0 $light-shadow;
+		}
+		&.previous-button {
+			grid-column: 1 / span 1;
+			grid-row: 1 / span 1;
+		}
+		&.next-button {
+			grid-column: 3 / span 1;
+			grid-row: 1 / span 1;
+		}
+		.nav-button-icon {
+			height: $button-icon-size;
+			width: $button-icon-size;
+		}
+	}
+}
+
+@keyframes growIn {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
 	}
 }

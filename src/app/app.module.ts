@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Injector } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { InfoCardComponent } from './info-card/components/info-card/info-card.co
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     InfoCardModule
   ],
   providers: [],

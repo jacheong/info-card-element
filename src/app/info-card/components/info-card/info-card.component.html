@@ -1,8 +1,21 @@
 <div class="info-card">
-    <div class="info-card-header">
-        <slot name="title"></slot>
+    <div *ngFor="let panel of panels; let i = index" class="info-card-panel" [class.active]="activeIndex === i">
+        <div class="info-card-header">
+            <slot name="title-{{i}}"></slot>
+        </div>
+        <div class="info-card-body">
+            <slot name="body-{{i}}"></slot>
+        </div>
     </div>
-    <div class="info-card-body">
-        <slot name="body"></slot>
+    <button class="nav-button next-button" *ngIf="showNextButton" (click)="incrementActiveIndex()">
+        <img class="nav-button-icon" src="assets/images/arrow_forward.svg" alt="Next Arrow">
+    </button>
+    <button class="nav-button previous-button" *ngIf="showPrevButton" (click)="decrementActiveIndex()">
+        <img class="nav-button-icon" src="assets/images/arrow_back.svg" alt="Back Arrow">
+    </button>
+    <div class="info-card-indicator-container" *ngIf="panels.length > 1 ">
+        <div *ngFor="let panel of panels; let i = index;" class="info-card-indicator"
+            [class.active]="activeIndex === i">
+        </div>
     </div>
 </div>

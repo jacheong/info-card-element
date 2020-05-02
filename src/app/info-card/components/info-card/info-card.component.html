@@ -1,5 +1,7 @@
 <div class="info-card">
-    <div *ngFor="let panel of panels; let i = index" class="info-card-panel" [class.active]="activeIndex === i">
+    <div *ngFor="let panel of panels; let i = index" class="info-card-panel" 
+        [class.active]="activeIndex === i"
+        [class.single]="panels.length === 1">
         <div class="info-card-header">
             <slot name="title-{{i}}"></slot>
         </div>
@@ -13,7 +15,7 @@
     <button class="nav-button previous-button" *ngIf="showPrevButton" (click)="decrementActiveIndex()">
         <img class="nav-button-icon" src="assets/images/arrow_back.svg" alt="Back Arrow">
     </button>
-    <div class="info-card-indicator-container" *ngIf="panels.length > 1 ">
+    <div class="info-card-indicator-container" [class.single]="panels.length === 1" *ngIf="panels.length > 1 ">
         <div *ngFor="let panel of panels; let i = index;" class="info-card-indicator"
             [class.active]="activeIndex === i">
         </div>

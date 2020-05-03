@@ -10,10 +10,10 @@
         </div>
     </div>
     <button class="nav-button next-button" *ngIf="showNextButton" (click)="incrementActiveIndex()">
-        <img class="nav-button-icon" src="assets/images/arrow_forward.svg" alt="Next Arrow">
+        <img class="nav-button-icon" src="assets/images/arrow_forward-white.svg" alt="Next Arrow">
     </button>
     <button class="nav-button previous-button" *ngIf="showPrevButton" (click)="decrementActiveIndex()">
-        <img class="nav-button-icon" src="assets/images/arrow_back.svg" alt="Back Arrow">
+        <img class="nav-button-icon" src="assets/images/arrow_back-white.svg" alt="Back Arrow">
     </button>
     <div class="info-card-indicator-container" [class.single]="panels.length === 1" *ngIf="panels.length > 1 ">
         <div *ngFor="let panel of panels; let i = index;" class="info-card-indicator"

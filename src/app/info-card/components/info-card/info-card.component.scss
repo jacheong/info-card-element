@@ -47,7 +47,7 @@
 			height: 1.5rem;
 			background:$primary-color;
 			box-shadow: 12px 12px 24px 0 $dark-shadow, -12px -12px 24px 0 $light-shadow;
-			border-radius: 50%;
+			border-radius: 3rem;
 			margin-right: $padding-sm;
 			&.active {
 				box-shadow: inset 6px 6px 10px 0 $dark-shadow, inset -6px -6px 10px 0 $light-shadow;
